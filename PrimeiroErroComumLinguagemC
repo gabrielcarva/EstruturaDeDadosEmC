@@ -1,0 +1,23 @@
+/******************************************************************************
+
+    Exemplo de código para corrigir o problema do buffer ler o Enter
+    do teclado no segundo scanf(), ao inserie o " * " dentro do segundo
+    scan(f) da seguinte maneira scanf("%*c %c", &caracter) o codigo
+    força o scanf() à ignorar o "Enter" que fica armazenado no buffer 
+    depois do primeiro scanf, que pode ser verificado no valor 10 da tabela ASCII
+    se você solicitar a o printf sem o "%*c"
+    
+*******************************************************************************/
+#include <stdio.h>
+int main ()
+{
+  char caracter;
+  printf ("Digite algum caracter\n");
+  scanf ("%c", &caracter);
+  printf ("O primeiro caracter foi [%c], seu numero na tabela ASCII e [%d]",
+	  caracter, caracter);
+  printf ("\nDigite o segundo caracter:\n");
+  scanf ("%*c %c", &caracter);
+  printf ("O segundo caracter foi [%c], seu numero na tabela ASCII e %d",
+	  caracter, caracter);
+}
